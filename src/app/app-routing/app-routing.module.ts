@@ -1,3 +1,5 @@
+import { CustomDirectivesComponent } from './../components/custom-directives/custom-directives.component';
+import { BuiltInDirectivesComponent } from './../components/built-in-directives/built-in-directives.component';
 import { ParentComponent } from './../components/parent/parent.component';
 import { UserService } from './../services/user/user.service';
 import { UsersResolveGuard } from './../guards/users-resolve/users-resolve.guard';
@@ -20,6 +22,8 @@ const appRoutes: Routes = [
   { path: 'blog', component: BlogComponent, canActivate: [ ActivateGuard ] },
   { path: 'messages', component: MessageListComponent, canDeactivate: [ DeactivateGuard ] },
   { path: 'parent', component: ParentComponent },
+  { path: 'bd', component: BuiltInDirectivesComponent },
+  { path: 'cd', component: CustomDirectivesComponent },
   { 
     path: 'users', 
     component: UsersComponent,

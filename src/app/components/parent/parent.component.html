@@ -1,7 +1,21 @@
-<h3>
+<!-- <h3>
   Parent Component
 </h3>
 <hr>
 <app-one></app-one>
 <hr>
-<app-two></app-two>
+<app-two></app-two> -->
+
+<!-- Date of Birth: {{ dateOfBirth | date: 'full' | lowercase }} -->
+
+<button class="btn btn-primary" (click)="addUser()">Add User</button>
+<hr>
+<input type="text" [(ngModel)]="userIdType">
+<div>
+  <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let user of users | filter: userIdType">
+        UserName: {{ user.name }}, UserID: {{ user.id }}
+    </li>
+  </ul>
+</div>

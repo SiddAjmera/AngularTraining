@@ -21,6 +21,12 @@ import { PlaceholderComponent } from './components/placeholder/placeholder.compo
 import { OneComponent } from './components/one/one.component';
 import { TwoComponent } from './components/two/two.component';
 import { ParentComponent } from './components/parent/parent.component';
+import { BuiltInDirectivesComponent } from './components/built-in-directives/built-in-directives.component';
+import { ChangeCaseDirective } from './directives/change-case/change-case.directive';
+import { CustomDirectivesComponent } from './components/custom-directives/custom-directives.component';
+import { UnlessDirective } from './directives/unless/unless.directive';
+import { AppendorPipe } from './pipes/appendor/appendor.pipe';
+import { FilterPipe } from './pipes/filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,13 @@ import { ParentComponent } from './components/parent/parent.component';
     PlaceholderComponent,
     OneComponent,
     TwoComponent,
-    ParentComponent
+    ParentComponent,
+    BuiltInDirectivesComponent,
+    ChangeCaseDirective,
+    CustomDirectivesComponent,
+    UnlessDirective,
+    AppendorPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

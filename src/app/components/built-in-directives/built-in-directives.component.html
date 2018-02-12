@@ -1,0 +1,53 @@
+<h2>
+  Built In Structural Directives
+</h2>
+
+<h3>NgFor and NgIf</h3>
+<button class="btn btn-primary" (click)="hideMessages = !hideMessages">Toggle Message List Visibility</button>
+<div *ngIf="hideMessages; else elseBlock;">
+  <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let message of messages; let i = index;">
+        {{ i }} {{ message }}
+      </li>
+  </ul>
+</div>
+<ng-template #elseBlock>
+  <div>
+    <h4>No messages to display!</h4>
+  </div>
+</ng-template>
+
+<hr>
+
+<h3>NgSwitch</h3>
+
+<input type="text" [(ngModel)]="alertType" class="form-control"><br>
+
+<div [ngSwitch]="alertType">
+  <div *ngSwitchCase="'success'" class="alert alert-success" role="alert">This will get displayed when alertTyoe is success</div>
+  <div *ngSwitchCase="'info'" class="alert alert-info" role="alert">This will get displayed when alertTyoe is info</div>
+  <div *ngSwitchCase="'warning'" class="alert alert-warning" role="alert">This will get displayed when alertTyoe is warning</div>
+  <div *ngSwitchCase="'danger'" class="alert alert-danger" role="alert">This will get displayed when alertTyoe is danger</div>
+  <div *ngSwitchDefault class="alert" role="alert">This will get displayed when alertTyoe is empty or anything else</div>
+</div>
+
+<hr>
+
+<h2>
+  Built In Attribute Directives
+</h2>
+
+<h3>NgClass and NgStyle</h3>
+<button class="btn btn-primary" (click)="blueGradientApplied = !blueGradientApplied">Switch Gradient Color</button>
+<div [ngClass]="blueGradientApplied ? 'blue-grad': 'red-grad'"
+     [ngStyle]="{ 'color': 'white', 'font-family': 'Courier', 'font-weight': 'bold', 'font-size': '20px' }"
+     class="grad-div">
+  This is the DIV Text
+</div>
+<hr>
+<h3>NgNonBindable</h3>
+<div>
+  This is how you use the String Interpolation Syntax by wrapping a propertyName inside curly braces like:
+  <pre ngNonBindable>{{ propertyName }}</pre>
+</div>

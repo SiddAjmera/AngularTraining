@@ -1,0 +1,12 @@
+.blue-grad {
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+.red-grad {
+  background: linear-gradient(141deg, #ff9966 0%, #ff5e62 75%);
+}
+
+.grad-div {
+  width: 400px;
+  height: 400px;
+}

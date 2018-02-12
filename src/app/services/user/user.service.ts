@@ -31,6 +31,10 @@ export class UserService {
     return this._users;
   }
 
+  addUser(user: IUser) {
+    this._users.push(user);
+  }
+
   getUserById(id: number): IUser {
     return this._users.filter(user => user.id === id)[0];
   }
@@ -67,7 +71,7 @@ export class UserService {
 
   getPostsByUser(id: number): Observable<any> {
     let params = new HttpParams().set('userId', id.toString());
-    return this.http.get(`${this._postsUrl}/user=23423423`, { params })
+    return this.http.get(`${this._postsUrl}`, { params })
       .retry(3)
       .catch(err => {
         console.log('Got an error as : ', err);

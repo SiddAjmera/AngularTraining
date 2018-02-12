@@ -1,0 +1,19 @@
+<h3>Custom Attribute Directive</h3>
+
+<input type="text" [appChangeCase]="'upper'">
+
+<hr>
+
+<h3>Custom Structural Directive</h3>
+
+<button class="btn btn-primary" (click)="unlessValue = !unlessValue">Toggle the Unless Value</button>
+
+<div *appUnless="unlessValue">
+  This will be visible only if the value evaluates to false
+</div>
+
+<!-- <ng-tempate [appUnless]="unlessValue">
+  <div>
+    This will be visible only if the value evaluates to false
+  </div>
+</ng-tempate> -->

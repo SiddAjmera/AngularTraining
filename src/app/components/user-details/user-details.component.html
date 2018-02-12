@@ -3,9 +3,10 @@
 </h3>
 
 <div *ngIf="user">
-  <span>UserId: {{ user.id }}</span>
-  <span>User Name: {{ user.name }}</span>
-  <span>User Email: {{ user.email }}</span>
+  <span>UserId: {{ user.id }}</span><br>
+  <span>User Name: {{ user.name }}</span><br>
+  <span>User Email: <a href="{{ user.email | appendor: 'pre': 'mailto://' }}">{{ user.email }}</a></span><br>
+  <span>User Phone: <a href="{{ user.phone | appendor: 'pre': 'tel://' }}">{{ user.phone }}</a></span><br>
 </div>
 <hr>
 
@@ -15,5 +16,5 @@
 <button class="btn btn-warning" (click)="getUserPosts()">Get User Posts</button>
 
 <pre>
-  {{ posts | async | json }}
+  {{ posts | async | json | uppercase }}
 </pre>
