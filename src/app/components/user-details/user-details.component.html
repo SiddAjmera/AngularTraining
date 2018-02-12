@@ -1,0 +1,19 @@
+<h3>
+  User Details
+</h3>
+
+<div *ngIf="user">
+  <span>UserId: {{ user.id }}</span>
+  <span>User Name: {{ user.name }}</span>
+  <span>User Email: {{ user.email }}</span>
+</div>
+<hr>
+
+<button class="btn btn-success" (click)="createUser()">Create User</button>
+<button class="btn btn-primary" (click)="updateUser()">Update User</button>
+<button class="btn btn-danger" (click)="deleteUser()">Delete User</button>
+<button class="btn btn-warning" (click)="getUserPosts()">Get User Posts</button>
+
+<pre>
+  {{ posts | async | json }}
+</pre>

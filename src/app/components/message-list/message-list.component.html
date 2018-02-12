@@ -1,0 +1,9 @@
+<h3>The List of View Messages</h3>
+
+<app-message *ngFor="let msg of messages; let i = index"
+             [message]="msg.message"
+             [index]="i"
+             (deleted)="onMessageDelete($event)">
+</app-message>
+
+<button (click)="changeFirstMessage()">Change First Message</button>
