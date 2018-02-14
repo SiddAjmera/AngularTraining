@@ -2,7 +2,7 @@ import { UserService } from './services/user/user.service';
 import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -27,6 +27,8 @@ import { CustomDirectivesComponent } from './components/custom-directives/custom
 import { UnlessDirective } from './directives/unless/unless.directive';
 import { AppendorPipe } from './pipes/appendor/appendor.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
+import { NewUserComponent } from './components/new-user/new-user.component';
+import { NewUserReactiveComponent } from './components/new-user-reactive/new-user-reactive.component';
 
 @NgModule({
   declarations: [
@@ -50,14 +52,17 @@ import { FilterPipe } from './pipes/filter/filter.pipe';
     CustomDirectivesComponent,
     UnlessDirective,
     AppendorPipe,
-    FilterPipe
+    FilterPipe,
+    NewUserComponent,
+    NewUserReactiveComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ UserService ],
   bootstrap: [AppComponent]

@@ -1,3 +1,5 @@
+import { NewUserReactiveComponent } from './../components/new-user-reactive/new-user-reactive.component';
+import { NewUserComponent } from './../components/new-user/new-user.component';
 import { CustomDirectivesComponent } from './../components/custom-directives/custom-directives.component';
 import { BuiltInDirectivesComponent } from './../components/built-in-directives/built-in-directives.component';
 import { ParentComponent } from './../components/parent/parent.component';
@@ -24,6 +26,8 @@ const appRoutes: Routes = [
   { path: 'parent', component: ParentComponent },
   { path: 'bd', component: BuiltInDirectivesComponent },
   { path: 'cd', component: CustomDirectivesComponent },
+  { path: 'new-user', component: NewUserComponent },
+  { path: 'new-user-reactive', component: NewUserReactiveComponent },
   { 
     path: 'users', 
     component: UsersComponent,

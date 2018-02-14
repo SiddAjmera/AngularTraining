@@ -1,0 +1,97 @@
+<div class="container">
+  <h3>New User Reactive form</h3>
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input formControlName="name" class="form-control" type="text">
+      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+        <p *ngIf="name.errors.required">Name is Required!</p>
+        <p *ngIf="name.errors.minlength">Name must be atleast {{ name.errors.minlength.requiredLength }} Characters Long!</p>
+        <p *ngIf="name.errors.pattern">Name can only be of pattern {{ name.errors.pattern.requiredPattern }}!</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input formControlName="username" class="form-control" type="text">
+      <p *ngIf="username.pending">Checking for Uniqueness...</p>
+      <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+        This username is not allowed!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" class="form-control" type="text">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input formControlName="phone" class="form-control" type="text">
+    </div>
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input formControlName="website" class="form-control" type="text">
+    </div>
+
+    <fieldset formGroupName="address">
+      <legend>Address</legend>
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input formControlName="street" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label for="suite">Suite</label>
+        <input formControlName="suite" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input formControlName="city" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zipcode</label>
+        <input formControlName="zipcode" class="form-control" type="text">
+      </div>
+
+      <fieldset formGroupName="geo">
+        <legend>Geo</legend>
+        <div class="form-group">
+          <label for="lat">Lat</label>
+          <input formControlName="lat" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="lng">Lng</label>
+          <input formControlName="lng" class="form-control" type="text">
+        </div>
+      </fieldset>
+
+    </fieldset>
+
+    <fieldset formGroupName="company">
+      <legend>Company</legend>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input formControlName="name" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label for="catchPhrase">CatchPhrase</label>
+        <input formControlName="catchPhrase" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label for="bs">BS</label>
+        <input formControlName="bs" class="form-control" type="text">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        Hobbies | <span class="glyphicon glyphicon-plus" (click)="addHobbies()"></span>
+      </legend>
+      <div 
+        class="input-group" 
+        *ngFor="let hobbyControl of userForm.get('hobbies').controls; let i = index;">
+        <input type="text" class="form-control" [formControlName]="i" placeholder="Hobby">
+        <span class="input-group-addon glyphicon glyphicon-trash" (click)="deleteHobby(i)"></span>
+      </div>
+    </fieldset>
+    
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>

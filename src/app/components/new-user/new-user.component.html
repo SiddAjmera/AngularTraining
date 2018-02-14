@@ -1,0 +1,114 @@
+<div class="container">
+  <h3>New User Form</h3>
+  <form #userForm="ngForm" (ngSubmit)="submit(userForm)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input 
+        required
+        minlength="8"
+        maxlength="20"
+        pattern="John Doe"
+        type="text"  
+        name="name" 
+        class="form-control" 
+        ngModel
+        #name="ngModel">
+      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+        <p *ngIf="name.errors.required">Name is Required!</p>
+        <p *ngIf="name.errors.minlength">Name must be atleast {{ name.errors.minlength.requiredLength }} Characters Long!</p>
+        <p *ngIf="name.errors.pattern">Name can only be of pattern {{ name.errors.pattern.requiredPattern }}!</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" name="phone" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="text" name="website" class="form-control" ngModel>
+    </div>
+
+    <fieldset ngModelGroup="address">
+      <legend>Address</legend>
+      
+      <div class="form-group">
+        <label for="street">Steet</label>
+        <input type="text" name="street" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="suite">Suite</label>
+        <input type="text" name="suite" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" name="city" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zipcode</label>
+        <input type="text" name="zipcode" class="form-control" ngModel>
+      </div>
+
+      <fieldset ngModelGroup="geo">
+        <legend>Geo</legend>
+        <div class="form-group">
+          <label for="lat">Lat</label>
+          <input type="text" name="lat" class="form-control" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="lng">Lng</label>
+          <input type="text" name="lng" class="form-control" ngModel>
+        </div>
+      </fieldset>
+
+    </fieldset>
+
+    <fieldset ngModelGroup="company">
+      <legend>Comapny</legend>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="catchPhrase">Catch Phrase</label>
+        <input type="text" name="catchPhrase" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="bs">BS</label>
+        <input type="text" name="bs" class="form-control" ngModel>
+      </div>
+    </fieldset>
+
+    <div class="radio">
+      <label>Gender: </label>
+      <label for="gender" *ngFor="let g of genders">
+        <input name="gender" required type="radio" [value]="g" ngModel>{{ g }}<br>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="communicationMode">Select a Communication Mode</label>
+      <select name="communicationMode" ngModel class="form-control">
+        <option value=""></option>
+        <option *ngFor="let mode of communicationModes" [value]="mode">{{ mode }}</option>
+      </select>
+    </div>
+
+    <div class="checkbox">
+      <label for="">
+        <input type="checkbox" name="agreement" ngModel> I agree to all the terms and Conditions!
+      </label>
+    </div>
+
+    <pre> {{ userForm.value | json }} </pre>
+
+    <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Submit</button>
+  </form>
+</div>
